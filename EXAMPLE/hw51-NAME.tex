@@ -1,0 +1,208 @@
+\documentclass[letterpaper]{report}
+
+\usepackage{tikz, background, titling, setspace}
+\usepackage{tabu}
+\usetikzlibrary{calc}
+\usepackage{fancyhdr}
+\usepackage{tcolorbox}
+\usepackage{layout}
+\usepackage[left=1in,right=0.5in,top=0.625in]{geometry}
+\usepackage{pgf}
+\usepackage{pgfpages}
+\usepackage{pgfplots}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tikz,pgfplots}
+\usepackage[abspage,user,lastpage]{zref}
+\usepackage{lastpage}
+\usepackage{marginnote}
+\usepackage{eso-pic}
+\usepackage{ulem}
+\usepackage{circuitikz}
+\usepackage{tikz-timing}
+\usepackage{wrapfig}
+\usepackage[export]{adjustbox}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage{cite}
+\usepackage{url}
+\usepackage[absolute]{textpos}
+\usepackage{amssymb}  % provides Rbb, etc.
+\usepackage{latexsym}  % provides \Box
+\usepackage{array}
+
+
+% Defined Colors to be used throughout
+% Change the color by uncommenting the color you want and commenting out the one you don't
+  % Page Background color
+    % #FFEC8B (LightGoldenrod1)
+        % \definecolor{PageColorz}{RGB}{255,236,139}
+    % #FFFE4  (darker YELLOW) -Recommended-
+      %\definecolor{PageColorz}{RGB}{255,255,200}
+    % #FFFFDC (Light Yellow1) -Defualt-
+      \definecolor{PageColorz}{RGB}{255,255,220}
+    % #FFFFED (Light Yellow)
+      % \definecolor{PageColorz}{RGB}{255,255,237}
+    % #fffff5 (Lighter Yellow)
+      % \definecolor{PageColorz}{RGB}{255,255,245}
+    % #ffffff (White)
+      % \definecolor{PageColorz}{RGB}{255,255,255}
+    % #BFEFFF (LightBlue1)
+      % \definecolor{PageColorz}{RGB}{191,239,255}
+    % #E0FFFF (LightCyan)
+      % \definecolor{PageColorz}{RGB}{224,255,255}
+    % #104E8B (DodgerBlue4)
+	    % \definecolor{PageColorz}{RGB}{16,78,139}
+    % #097969 (CadmiumGreen)
+      % \definecolor{PageColorz}{HTML}{097969}
+    % #AFE1AF (CeladonGreen) 
+      % \definecolor{PageColorz}{HTML}{AFE1AF}
+
+    % MEME colorz (PINK) #FFb6C1
+      % \defineColor{PageColorz}{HTML}{FFB6C1}
+	\pagecolor{PageColorz}
+
+  % Line Colors 
+    % #b94249 (Green) -Default-
+      \definecolor{MyLines}{RGB}{73,185,66}
+    % #6495ed (Blue)
+      % \definecolor{MyLines}{RGB}{97,145,179}
+    % #104E8B (DodgerBlue4)
+      % \definecolor{MyLines}{RGB}{16,78,139}
+    % #E0FFFF (LightCyan)
+      % \definecolor{MyLines}{RGB}{224,255,255}
+    % #000000 (Black)
+      % \definecolor{MyLines}{RGB}{0,0,0}
+    % #FFFFFF (White)
+      % \definecolor{MyLines}{RGB}{255,255,255}
+
+  % Default Text Color
+    % #b94249 (Green)
+      % \definecolor{MyColor}{RGB}{73,185,66}
+    % #6495ed (Blue)
+      % \definecolor{MyColor}{RGB}{97,145,179}
+    % #000000 (Black) -Default-
+      \definecolor{MyColor}{RGB}{0,0,0}
+  
+    \color{MyColor}
+
+  % GridColor
+    % #DFFFFF (UltraLightGrey) -Defualt-
+      \definecolor{GridColor}{HTML}{DFFFFF}
+    % #D3D3D3 (DarkishGrey)
+      % \definecolor{GridColor}{HTML}{D3D3D3}
+
+  % Extra Defined Color
+  \definecolor{Extra}{RGB}{16,78,160}
+  % \definecolor{Extra}{RGB}{205,245,255}
+
+% A compatability option for pgfplots
+\pgfplotsset{compat=newest}
+
+% Document Properties
+
+\newcommand{\course}{2250}
+\newcommand{\Name}{ NAME } % REPLACE THIS WITH YOUR NAME
+\newcommand{\NumID}{ID-NUMBER} % THIS ISN'T USED IN THE DOCUMENT BUT CAN BE 
+\newcommand{\DocNumber}{51} % THIS IS USED 
+
+
+% Draw the Background lines
+\backgroundsetup{%
+ position=current page.center,
+ angle=0,
+ scale=1,
+ contents={%
+  \begin{tikzpicture}%
+    [
+      normal lines/.style={MyLines, thick},
+      grid lines/.style={GridColor, very thin},
+      every node/.append style={black, align=center, opacity=1}
+    ]
+    \foreach \y in {0.1, 0.25,...,10.5} {  \draw[grid lines] (1in,\y in) -- (8in,\y in); }
+    \foreach \x in {1, 1.15,...,8}          {  \draw[grid lines] (\x in,0in) -- (\x in,10.5 in); }
+	% Draw the background lines of the document
+	\draw[normal lines] (3.166in,10.5in) -- (3.166in,11in);
+	\draw[normal lines] (5.333in,10.5in) -- (5.333in,11in);
+    \draw[normal lines] (1in,0) -- (1in,11in);
+    \draw[normal lines] (8in,0) -- (8in,11in);
+    \draw[normal lines] (0in,10.5in) -- (8.5in,10.5in);
+	% Make Nodes for the header to appear
+  % CENTER HEADER SPACE 
+	\node (t) [font=\footnotesize, anchor=center] at (4.25in, 10.725in) {\course, Assignment: \NumID};
+  % LEFT MOST HEADER SPACE
+  \node (t) [font=\footnotesize, anchor=center] at (2.00in, 10.725in) {\today};
+  % RIGHT HEADER SPACE 
+  \node (t) [font=\footnotesize, anchor=center] at (6.63in, 10.725in) {\Name};
+  % RIGHT MOST HEADER FOR PAGE NUMBER
+	\node (t) [font=\footnotesize, anchor=center] at (8.25in, 10.725in) {\thepage / \pageref{LastPage}};
+  \end{tikzpicture}%
+}}
+
+
+% Pagestyle for no header 
+\pagestyle{empty}
+
+% Spacing Controls
+\setlength{\parindent}{0pt}
+
+% New environments
+
+\newcounter{ProblemNumber}[section]
+\newenvironment{problem}[1][]{
+    \noindent
+	\textbf{Problem #1 \refstepcounter{ProblemNumber}:} \\ 
+    \setlength{\leftskip}{0.125in}
+    \setlength{\rightskip}{0.125in}
+}
+{
+	\newline 
+	\textcolor{MyLines}{\hrule}
+    \vspace{6pt}
+    \par
+}
+%\newcounter{SolutionNumber}[section]
+\newenvironment{answer}[1][]{
+  \setlength{\leftskip}{0.125in}
+  \setlength{\rightskip}{0.125in}
+  %\textbf{Solution #1 \refstepcounter{ProblemNumber}:} \\ 
+}
+{
+  \newline
+  \textcolor{MyLines}{\hrule}
+  \vspace{2pt}
+  \textcolor{MyLines}{\hrule}
+  \vspace{6pt}
+}
+
+
+\begin{document}
+
+\begin{problem}[{1}]
+    \\ Given: \\
+    Find:
+\end{problem}
+\begin{answer}
+    Answer Section
+\end{answer}
+        \newpage
+\begin{problem}[{2}]
+    \\ Given: \\
+    Find:
+\end{problem}
+\begin{answer}
+    Answer Section
+\end{answer}
+        \newpage
+\begin{problem}[{3}]
+    \\ Given: \\
+    Find:
+\end{problem}
+\begin{answer}
+    Answer Section
+\end{answer}
+        
+\end{document}
