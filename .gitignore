@@ -1,0 +1,25 @@
+# IGNORE LaTex intermediate and auxiliary files
+
+*.DS_Store
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.nav
+*.snm
+*.bbl
+*.blg
+*.idx
+*.ilg
+*.ind
+*.pre
+
+# IGNORE for visual studio code
+
+.vscode/
+
