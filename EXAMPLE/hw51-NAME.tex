@@ -40,10 +40,10 @@
   % Page Background color
     % #FFEC8B (LightGoldenrod1)
         % \definecolor{PageColorz}{RGB}{255,236,139}
-    % #FFFE4  (darker YELLOW) -Recommended-
-      %\definecolor{PageColorz}{RGB}{255,255,200}
+     %#FFFE4  (darker YELLOW) -Recommended-
+      \definecolor{PageColorz}{RGB}{255,255,200}
     % #FFFFDC (Light Yellow1) -Defualt-
-      \definecolor{PageColorz}{RGB}{255,255,220}
+      % \definecolor{PageColorz}{HTML}{C634A2}
     % #FFFFED (Light Yellow)
       % \definecolor{PageColorz}{RGB}{255,255,237}
     % #fffff5 (Lighter Yellow)
@@ -62,12 +62,14 @@
       % \definecolor{PageColorz}{HTML}{AFE1AF}
 
     % MEME colorz (PINK) #FFb6C1
-      % \defineColor{PageColorz}{HTML}{FFB6C1}
+      % \definecolor{PageColorz}{HTML}{FFB6C1}
+      % \definecolor{PageColorz}{HTML}{C634A2}
+      % \definecolor{PageColorz}{HTML}{FFB7C5}
 	\pagecolor{PageColorz}
 
   % Line Colors 
     % #b94249 (Green) -Default-
-      \definecolor{MyLines}{RGB}{73,185,66}
+       \definecolor{MyLines}{RGB}{73,185,66}
     % #6495ed (Blue)
       % \definecolor{MyLines}{RGB}{97,145,179}
     % #104E8B (DodgerBlue4)
@@ -77,7 +79,7 @@
     % #000000 (Black)
       % \definecolor{MyLines}{RGB}{0,0,0}
     % #FFFFFF (White)
-      % \definecolor{MyLines}{RGB}{255,255,255}
+      %\definecolor{MyLines}{RGB}{255,255,255}
 
   % Default Text Color
     % #b94249 (Green)
@@ -91,9 +93,10 @@
 
   % GridColor
     % #DFFFFF (UltraLightGrey) -Defualt-
-      \definecolor{GridColor}{HTML}{DFFFFF}
+      %\definecolor{GridColor}{HTML}{DFFFFF}
     % #D3D3D3 (DarkishGrey)
       % \definecolor{GridColor}{HTML}{D3D3D3}
+			\definecolor{GridColor}{HTML}{48E954}
 
   % Extra Defined Color
   \definecolor{Extra}{RGB}{16,78,160}
@@ -122,8 +125,8 @@
       grid lines/.style={GridColor, very thin},
       every node/.append style={black, align=center, opacity=1}
     ]
-    \foreach \y in {0.1, 0.25,...,10.5} {  \draw[grid lines] (1in,\y in) -- (8in,\y in); }
-    \foreach \x in {1, 1.15,...,8}          {  \draw[grid lines] (\x in,0in) -- (\x in,10.5 in); }
+    %\foreach \y in {0.1, 0.25,...,10.5} {  \draw[grid lines] (1in,\y in) -- (8in,\y in); }
+    %\foreach \x in {1, 1.15,...,8}          {  \draw[grid lines] (\x in,0in) -- (\x in,10.5 in); }
 	% Draw the background lines of the document
 	\draw[normal lines] (3.166in,10.5in) -- (3.166in,11in);
 	\draw[normal lines] (5.333in,10.5in) -- (5.333in,11in);
