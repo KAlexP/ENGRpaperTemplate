@@ -6,7 +6,7 @@
 \usepackage{fancyhdr}
 \usepackage{tcolorbox}
 \usepackage{layout}
-\usepackage[left=1in,right=0.5in,top=0.625in]{geometry}
+\usepackage[left=1in,right=1cm,top=0.625in]{geometry}
 \usepackage{pgf}
 \usepackage{pgfpages}
 \usepackage{pgfplots}
@@ -122,23 +122,23 @@
       grid lines/.style={GridColor, very thin},
       every node/.append style={black, align=center, opacity=1}
     ]
-    \foreach \y in {0.1, 0.25,...,10.5} {  \draw[grid lines] (1in,\y in) -- (8in,\y in); }
-    \foreach \x in {1, 1.15,...,8}          {  \draw[grid lines] (\x in,0in) -- (\x in,10.5 in); }
+    \foreach \y in {0.5, 1,...,27} {  \draw[grid lines] (2.5cm,\y cm) -- (20.5cm,\y cm); }
+    \foreach \x in {2.5, 3,...,20.5}          {  \draw[grid lines] (\x cm,0cm) -- (\x cm, 27cm); }
 	% Draw the background lines of the document
 	\draw[normal lines] (3.166in,10.5in) -- (3.166in,11in);
 	\draw[normal lines] (5.333in,10.5in) -- (5.333in,11in);
-    \draw[normal lines] (1in,0) -- (1in,11in);
-    \draw[normal lines] (8in,0) -- (8in,11in);
-    \draw[normal lines] (0in,10.5in) -- (8.5in,10.5in);
+    \draw[normal lines] (2.5cm,0) -- (2.5cm,11in);
+    \draw[normal lines] (20.5cm,0) -- (20.5cm,11in);
+    \draw[normal lines] (0in,27cm) -- (21.5cm,27cm);
 	% Make Nodes for the header to appear
   % CENTER HEADER SPACE 
-	\node (t) [font=\footnotesize, anchor=center] at (4.25in, 10.725in) {\course, Assignment: \NumID};
+	\node (t) [font=\footnotesize, anchor=center] at (4.25in, 27.5cm) {\course, Assignment: \NumID};
   % LEFT MOST HEADER SPACE
-  \node (t) [font=\footnotesize, anchor=center] at (2.00in, 10.725in) {\today};
+  \node (t) [font=\footnotesize, anchor=center] at (5cm, 27.5cm) {\today};
   % RIGHT HEADER SPACE 
-  \node (t) [font=\footnotesize, anchor=center] at (6.63in, 10.725in) {\Name};
+  \node (t) [font=\footnotesize, anchor=center] at (15cm, 27.5cm) {\Name};
   % RIGHT MOST HEADER FOR PAGE NUMBER
-	\node (t) [font=\footnotesize, anchor=center] at (8.25in, 10.725in) {\thepage / \pageref{LastPage}};
+	\node (t) [font=\footnotesize, anchor=center] at (21cm, 27.5cm) {\thepage / \pageref{LastPage}};
   \end{tikzpicture}%
 }}
 
